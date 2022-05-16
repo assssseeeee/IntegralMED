@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="colorPrimaryText">#222934</color>
+    <color name="colorSecondaryText">#696969</color>
+
+
+    <color name="color_snackBar_success">#8bc34a</color>
+    <color name="color_snackBar_error">#f72400</color>
+
+
+    <color name="colorLightGray">#f1f1f1</color>
+
+    <color name="colorBorder">#e8e6e6</color>
+    <color name="colorDarkGray">#878787</color>
+
 </resources>
