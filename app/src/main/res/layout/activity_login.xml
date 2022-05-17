@@ -7,15 +7,140 @@
     tools:context=".ui.activities.LoginActivity">
 
 
-    <TextView
+    <FrameLayout
+        android:id="@+id/frame_layout_image_view_header"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/frame_layout_header_image_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="image"
+            android:scaleType="fitXY"
+            android:src="@drawable/header_image_crop" />
+    </FrameLayout>
+
+    <com.example.integralmed.utils.IMEDTextViewBold
+        android:id="@+id/text_view_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="loginActivity"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="@string/text_view_login"
+        android:textSize="@dimen/login_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout_image_view_header" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:hint="@string/hint_email_id"
+        android:textColorHint="@color/colorSecondaryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_login">
+
+        <com.example.integralmed.utils.IMEDEditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/edit_text_padding"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/edit_text_text_size"
+            tools:text="abc@gmail.com" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:hint="@string/hint_password"
+        android:textColorHint="@color/colorSecondaryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_email">
+
+        <com.example.integralmed.utils.IMEDEditText
+            android:id="@+id/edit_text_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:padding="@dimen/edit_text_padding"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/edit_text_text_size"
+            tools:text="123456" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.example.integralmed.utils.IMEDTextView
+        android:id="@+id/text_view_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/forgot_password"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/forgot_password_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_password" />
+
+
+    <com.example.integralmed.utils.IMEDButton
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/horizontal_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="@drawable/button_background"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/button_padding"
+        android:text="@string/button_login"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_forgot_password" />
+
+
+    <LinearLayout
+        android:id="@+id/linear_layout_don_t_have_an_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login">
+
+        <com.example.integralmed.utils.IMEDTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/register_text_size" />
+
+        <com.example.integralmed.utils.IMEDTextViewBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/very_small_margin"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="Register"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/register_text_size" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
