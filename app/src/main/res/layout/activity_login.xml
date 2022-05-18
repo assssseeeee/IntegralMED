@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:contentDescription="image"
             android:scaleType="fitXY"
-            android:src="@drawable/header_image_crop" />
+            android:src="@drawable/login_header_image" />
     </FrameLayout>
 
     <com.example.integralmed.utils.IMEDTextViewBold
@@ -134,6 +134,7 @@
             android:textSize="@dimen/register_text_size" />
 
         <com.example.integralmed.utils.IMEDTextViewBold
+            android:id="@+id/text_view_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/very_small_margin"
