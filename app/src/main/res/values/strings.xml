@@ -14,4 +14,12 @@
     <string name="terms_and_condition">I agree to the Terms and condition</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Login</string>
+    <string name="error_first_name">Please enter first name</string>
+    <string name="error_last_name">Please enter last name</string>
+    <string name="error_email">Please enter email</string>
+    <string name="error_password">Please enter password</string>
+    <string name="error_confirm_password">Please enter confirm password</string>
+    <string name="error_password_mismatch">Password and confirm password mismatch</string>
+    <string name="error_check_box_terms_and_condition">Please agree terms and condition</string>
+    <string name="error_details_valid">Your details are valid</string>
 </resources>
