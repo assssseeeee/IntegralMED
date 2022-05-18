@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_background_radius">10dp</dimen>
+    <dimen name="frame_layout_header_image_height">200dp</dimen>
+    <dimen name="login_text_size">35sp</dimen>
+    <dimen name="large_margin">35dp</dimen>
+    <dimen name="horizontal_margin">20dp</dimen>
+    <dimen name="medium_margin">20dp</dimen>
+    <dimen name="edit_text_padding">16dp</dimen>
+    <dimen name="edit_text_text_size">16sp</dimen>
+    <dimen name="small_margin">10dp</dimen>
+    <dimen name="forgot_password_text_size">16sp</dimen>
+    <dimen name="button_padding">16dp</dimen>
+    <dimen name="button_text_size">18sp</dimen>
+    <dimen name="very_small_margin">5dp</dimen>
+    <dimen name="register_text_size">16sp</dimen>
+</resources>
