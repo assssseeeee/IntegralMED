@@ -15,7 +15,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         text_view_forgot_password.setOnClickListener(this)
         text_view_register.setOnClickListener(this)
         button_login.setOnClickListener(this)

@@ -6,6 +6,12 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import com.example.integralmed.R
+import com.example.integralmed.firestore.FirestoreClass
+import com.example.integralmed.models.User
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -66,11 +72,38 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
+
+    private fun registerUser() {
+        if (validateRegisterDetails()) {
+            val email: String =
+                edit_text_registration_email.text.toString().trim { it <= ' ' }
+            val password: String =
+                edit_text_registration_password.text.toString().trim { it <= ' ' }
+
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
+                    if (task.isSuccessful) {
+                        val fireBaseUser: FirebaseUser = task.result!!.user!!
+                        val user = User(
+                            fireBaseUser.uid,
+                            edit_text_registration_first_name.text.toString().trim { it <= ' ' },
+                            edit_text_registration_last_name.text.toString().trim { it <= ' ' },
+                            edit_text_registration_email.text.toString().trim { it <= ' ' })
+                        FirestoreClass().registerUser(this@RegisterActivity, user)
+                        FirebaseAuth.getInstance().signOut()
+                        finish()
+                    } else {
+                        showErrorSnackBar(task.exception!!.message.toString(), true)
+                    }
+                })
+        }
+    }
+
     override fun onClick(view: View?) {
         if (view != null) {
             when (view.id) {
                 R.id.button_registration -> {
-                    validateRegisterDetails()
+                    registerUser()
                 }
                 R.id.text_view_register_login -> {
                     onBackPressed()
