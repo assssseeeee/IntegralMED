@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.Toast
 import com.example.integralmed.R
 import com.example.integralmed.firestore.FirestoreClass
 import com.example.integralmed.models.User
@@ -75,6 +76,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
 
     private fun registerUser() {
         if (validateRegisterDetails()) {
+            showProgressDialog(resources.getString(R.string.please_wait))
             val email: String =
                 edit_text_registration_email.text.toString().trim { it <= ' ' }
             val password: String =
@@ -93,10 +95,20 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                         FirebaseAuth.getInstance().signOut()
                         finish()
                     } else {
+                        hideProgressDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), true)
                     }
                 })
         }
+    }
+
+    fun userRegistrationSuccess() {
+        hideProgressDialog()
+        Toast.makeText(
+            this@RegisterActivity,
+            resources.getString(R.string.register_successful),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onClick(view: View?) {

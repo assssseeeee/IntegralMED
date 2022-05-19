@@ -1,16 +1,15 @@
 package com.example.integralmed.ui.activities
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.example.integralmed.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.dialog_progress.*
 
 open class BaseActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
-    }
+    private lateinit var myShowProgressDialog: Dialog
 
     fun showErrorSnackBar(message: String, errorMessage: Boolean) {
         val snackBar =
@@ -36,9 +35,18 @@ open class BaseActivity : AppCompatActivity() {
     }
 
 
-    fun showProgressDialog() {}
+    fun showProgressDialog(text: String) {
+        myShowProgressDialog = Dialog(this)
+        myShowProgressDialog.setContentView(R.layout.dialog_progress)
+        myShowProgressDialog.text_view_progress_text.text = text
+        myShowProgressDialog.setCancelable(false)
+        myShowProgressDialog.setCanceledOnTouchOutside(false)
+        myShowProgressDialog.show()
+    }
 
 
-    fun hideProgressDialog() {}
+    fun hideProgressDialog() {
+        myShowProgressDialog.dismiss()
+    }
 
 }

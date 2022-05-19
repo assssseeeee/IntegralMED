@@ -22,4 +22,6 @@
     <string name="error_password_mismatch">Password and confirm password mismatch</string>
     <string name="error_check_box_terms_and_condition">Please agree terms and condition</string>
     <string name="error_details_valid">Your details are valid</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="register_successful">Your details are valid</string>
 </resources>
