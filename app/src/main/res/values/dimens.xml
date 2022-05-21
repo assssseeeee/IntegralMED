@@ -21,4 +21,6 @@
     <dimen name="progress_bar_text_size">16sp</dimen>
     <dimen name="width_progress_bar">60dp</dimen>
     <dimen name="height_progress_bar">60dp</dimen>
+    <dimen name="header_text_size">18sp</dimen>
+    <dimen name="text_view_padding">16dp</dimen>
 </resources>
