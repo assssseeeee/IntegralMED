@@ -11,6 +11,7 @@ object Constants {
     const val IMAGE: String = "image"
     const val USER_PROFILE_IMAGE = "user_profile_image"
     const val COMPLETE_PROFILE: String = "profile_completed"
-    const val PROFILE_ASSETS_STATUS = "profile_assets_status"
+    const val PROFILE_ASSETS_STATUS: Int = 0
+    const val EXTRA_USERS_DETAILS: String = "extra_users_details"
 
 }

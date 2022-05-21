@@ -9,6 +9,10 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.integralmed.R
+import com.example.integralmed.firestore.FirestoreClass
+import com.example.integralmed.models.User
+import com.example.integralmed.utils.Constants
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
@@ -35,6 +39,35 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 true
             }
         }
+    }
+
+    private fun loginRegisteredUser() {
+        if (validateLoginDetails()) {
+            showProgressDialog(resources.getString(R.string.please_wait))
+            val email: String = edit_text_email.text.toString().trim { it <= ' ' }
+            val password: String = edit_text_password.text.toString().trim { it <= ' ' }
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        FirestoreClass().getUserDetails(this@LoginActivity)
+                    } else {
+                        hideProgressDialog()
+                        showErrorSnackBar(task.exception!!.message.toString(), true)
+                    }
+                }
+        }
+    }
+
+    private fun userLoggedSuccess(user: User) {
+        hideProgressDialog()
+        if (user.profileCompleted == 0) {
+            val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+            intent.putExtra(Constants.EXTRA_USERS_DETAILS, user)
+            startActivity(intent)
+        } else {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
+        finish()
     }
 
 

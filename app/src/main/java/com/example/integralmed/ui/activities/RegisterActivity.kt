@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlin.concurrent.thread
 
 class RegisterActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +91,8 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                             fireBaseUser.uid,
                             edit_text_registration_first_name.text.toString().trim { it <= ' ' },
                             edit_text_registration_last_name.text.toString().trim { it <= ' ' },
-                            edit_text_registration_email.text.toString().trim { it <= ' ' })
+                            edit_text_registration_email.text.toString().trim { it <= ' ' }
+                        )
                         FirestoreClass().registerUser(this@RegisterActivity, user)
                         FirebaseAuth.getInstance().signOut()
                         finish()
