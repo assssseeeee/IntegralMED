@@ -1,11 +1,12 @@
 package com.example.integralmed.ui.activities
 
 import android.app.Dialog
+import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.integralmed.R
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.dialog_progress.*
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -36,11 +37,14 @@ open class BaseActivity : AppCompatActivity() {
 
 
     fun showProgressDialog(text: String) {
+
+        var view = LayoutInflater.from(this).inflate(R.layout.dialog_progress, null)
+        var text_view_progress_text = view.findViewById<TextView>(R.id.text_view_progress_text)
         myShowProgressDialog = Dialog(this)
         myShowProgressDialog.setContentView(R.layout.dialog_progress)
         myShowProgressDialog.setCancelable(false)
         myShowProgressDialog.setCanceledOnTouchOutside(false)
-        myShowProgressDialog.text_view_progress_text.text = text
+        text_view_progress_text.text = text
         myShowProgressDialog.show()
     }
 

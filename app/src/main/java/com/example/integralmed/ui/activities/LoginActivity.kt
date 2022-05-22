@@ -1,24 +1,36 @@
 package com.example.integralmed.ui.activities
 
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import com.example.integralmed.R
 import com.example.integralmed.firestore.FirestoreClass
 import com.example.integralmed.models.User
 import com.example.integralmed.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
+
+    private lateinit var text_view_forgot_password: TextView
+    private lateinit var text_view_register: TextView
+    private lateinit var button_login: Button
+    private lateinit var edit_text_email: EditText
+    private lateinit var edit_text_password: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        text_view_forgot_password = findViewById(R.id.text_view_forgot_password)
+        text_view_register = findViewById(R.id.text_view_register)
+        button_login = findViewById(R.id.button_login)
+        edit_text_email = findViewById(R.id.edit_text_email)
+        edit_text_password = findViewById(R.id.edit_text_password)
+
         text_view_forgot_password.setOnClickListener(this)
         text_view_register.setOnClickListener(this)
         button_login.setOnClickListener(this)
@@ -58,7 +70,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun userLoggedSuccess(user: User) {
+    fun userLoggedSuccess(user: User) {
         hideProgressDialog()
         if (user.profileCompleted == 0) {
             val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
@@ -79,7 +91,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     startActivity(intent)
                 }
                 R.id.button_login -> {
-                    validateLoginDetails()
+                    loginRegisteredUser()
                 }
             }
         }
