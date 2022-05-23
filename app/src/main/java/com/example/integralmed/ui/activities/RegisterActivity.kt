@@ -1,11 +1,9 @@
 package com.example.integralmed.ui.activities
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Toast
+import android.widget.*
 import com.example.integralmed.R
 import com.example.integralmed.firestore.FirestoreClass
 import com.example.integralmed.models.User
@@ -13,14 +11,33 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
-import kotlin.concurrent.thread
+
 
 class RegisterActivity : BaseActivity(), View.OnClickListener {
+
+    private lateinit var checkbox_terms_and_condition: CheckBox
+    private lateinit var button_registration: Button
+    private lateinit var text_view_register_login: TextView
+    private lateinit var edit_text_registration_first_name: EditText
+    private lateinit var edit_text_registration_last_name: EditText
+    private lateinit var edit_text_registration_email: EditText
+    private lateinit var edit_text_registration_password: EditText
+    private lateinit var edit_text_registration_confirm_password: EditText
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        text_view_register_login = findViewById(R.id.text_view_register_login)
+        edit_text_registration_first_name = findViewById(R.id.edit_text_registration_first_name)
+        edit_text_registration_last_name = findViewById(R.id.edit_text_registration_last_name)
+        edit_text_registration_email = findViewById(R.id.edit_text_registration_email)
+        edit_text_registration_password = findViewById(R.id.edit_text_registration_password)
+        edit_text_registration_confirm_password =
+            findViewById(R.id.edit_text_registration_confirm_password)
+        checkbox_terms_and_condition = findViewById(R.id.checkbox_terms_and_condition)
+        button_registration = findViewById(R.id.button_registration)
 
         checkbox_terms_and_condition.setOnClickListener(this)
         button_registration.setOnClickListener(this)
@@ -68,7 +85,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                 false
             }
             else -> {
-                showErrorSnackBar(resources.getString(R.string.error_details_valid), false)
+                Toast.makeText(
+                    this,
+                    resources.getString(R.string.register_successful),
+                    Toast.LENGTH_SHORT
+                ).show()
                 true
             }
         }
@@ -106,11 +127,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
 
     fun userRegistrationSuccess() {
         hideProgressDialog()
-        Toast.makeText(
-            this@RegisterActivity,
-            resources.getString(R.string.register_successful),
-            Toast.LENGTH_LONG
-        ).show()
+//        Toast.makeText(
+//            this@RegisterActivity,
+//            resources.getString(R.string.register_successful),
+//            Toast.LENGTH_LONG
+//        ).show()
     }
 
     override fun onClick(view: View?) {

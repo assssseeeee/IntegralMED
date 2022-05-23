@@ -24,4 +24,15 @@
     <string name="error_details_valid">Your details are valid</string>
     <string name="please_wait">Please wait...</string>
     <string name="register_successful">Your details are valid</string>
+    <string name="complete_profile">COMPLETE PROFILE</string>
+    <string name="phone">Phone number</string>
+    <string name="save">SAVE</string>
+    <string name="image">Image</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="error_phone">Please enter phone number</string>
+    <string name="msg_profile_updatins_success">Profile updating success</string>
+    <string name="title_activity_database_search">DatabaseSearchActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

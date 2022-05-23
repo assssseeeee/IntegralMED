@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "407062682772",
-    "project_id": "integralmed-e1faa",
-    "storage_bucket": "integralmed-e1faa.appspot.com"
+    "project_number": "971816328796",
+    "project_id": "integralmed-a8feb",
+    "storage_bucket": "integralmed-a8feb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:407062682772:android:84412b41d73bbdefc96881",
+        "mobilesdk_app_id": "1:971816328796:android:fd81bacc488143fa775099",
         "android_client_info": {
           "package_name": "com.example.integralmed"
         }
       },
       "oauth_client": [
         {
-          "client_id": "407062682772-4klp3enqv85vkau3fq7jkmk2uv74kacv.apps.googleusercontent.com",
+          "client_id": "971816328796-3rjfoj0mjjjdimetej75kpp5f9gast1d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.integralmed",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "407062682772-p38u09nda8oase1gpsupf4gfe8m842j8.apps.googleusercontent.com",
+          "client_id": "971816328796-73a88mt9uv4hnrvupjal41n07nsl6f9b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA_TyYP8WIbLwbXYmYorV_cf7o4ePiW56s"
+          "current_key": "AIzaSyDH5pujtKMsRDiHf7X6RmuAmTS1Ol-L9jM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "407062682772-p38u09nda8oase1gpsupf4gfe8m842j8.apps.googleusercontent.com",
+              "client_id": "971816328796-73a88mt9uv4hnrvupjal41n07nsl6f9b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

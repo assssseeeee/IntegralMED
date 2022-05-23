@@ -22,4 +22,6 @@
     <color name="colorBorder">#e8e6e6</color>
     <color name="colorDarkGray">#878787</color>
 
+    <color name="grey_shade_350">#ffd6d6d6</color>
+
 </resources>
