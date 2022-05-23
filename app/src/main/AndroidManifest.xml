@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IntegralMED">
         <activity
+            android:name=".ui.activities.DatabaseSearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight"
+            android:label="@string/title_activity_database_search" />
+        <activity
             android:name=".ui.activities.SettingsActivity"
             android:exported="false" />
         <activity

@@ -1,6 +1,5 @@
 package com.example.integralmed.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.integralmed.R
 

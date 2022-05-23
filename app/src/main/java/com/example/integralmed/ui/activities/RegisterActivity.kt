@@ -85,7 +85,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                 false
             }
             else -> {
-                showErrorSnackBar(resources.getString(R.string.error_details_valid), false)
+                Toast.makeText(
+                    this,
+                    resources.getString(R.string.register_successful),
+                    Toast.LENGTH_SHORT
+                ).show()
                 true
             }
         }
@@ -112,7 +116,7 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                         )
                         FirestoreClass().registerUser(this@RegisterActivity, user)
                         FirebaseAuth.getInstance().signOut()
-                        onBackPressed()
+                        finish()
                     } else {
                         hideProgressDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), true)
@@ -123,11 +127,11 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
 
     fun userRegistrationSuccess() {
         hideProgressDialog()
-        Toast.makeText(
-            this@RegisterActivity,
-            resources.getString(R.string.register_successful),
-            Toast.LENGTH_LONG
-        ).show()
+//        Toast.makeText(
+//            this@RegisterActivity,
+//            resources.getString(R.string.register_successful),
+//            Toast.LENGTH_LONG
+//        ).show()
     }
 
     override fun onClick(view: View?) {

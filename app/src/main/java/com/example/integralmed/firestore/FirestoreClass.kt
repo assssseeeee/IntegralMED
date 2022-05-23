@@ -8,6 +8,7 @@ import com.example.integralmed.models.User
 import com.example.integralmed.ui.activities.LoginActivity
 import com.example.integralmed.ui.activities.RegisterActivity
 import com.example.integralmed.ui.activities.SettingsActivity
+import com.example.integralmed.ui.activities.UserProfileActivity
 import com.example.integralmed.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -75,5 +76,27 @@ class FirestoreClass {
             currentUserID = currentUser.uid
         }
         return currentUserID
+    }
+
+    fun updateUserProfileData(activity: Activity, userHashMap: HashMap<String, Any>) {
+        myFirestore
+            .collection(Constants.USERS)
+            .document(getCurrentUserID())
+            .update(userHashMap)
+            .addOnSuccessListener {
+                when (activity) {
+                    is UserProfileActivity -> {
+                        activity.userProfileUpdateSuccess()
+                    }
+                }
+
+            }.addOnFailureListener { e ->
+                when (activity) {
+                    is UserProfileActivity -> {
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e(activity.javaClass.simpleName.toString(), "Error update user profile data", e)
+            }
     }
 }

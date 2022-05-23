@@ -2,6 +2,7 @@ package com.example.integralmed.ui.activities
 
 import android.app.Dialog
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -37,14 +38,11 @@ open class BaseActivity : AppCompatActivity() {
 
 
     fun showProgressDialog(text: String) {
-
-        var view = LayoutInflater.from(this).inflate(R.layout.dialog_progress, null)
-        var text_view_progress_text = view.findViewById<TextView>(R.id.text_view_progress_text)
         myShowProgressDialog = Dialog(this)
         myShowProgressDialog.setContentView(R.layout.dialog_progress)
+        myShowProgressDialog.findViewById<TextView>(R.id.text_view_progress_text).text = text
         myShowProgressDialog.setCancelable(false)
         myShowProgressDialog.setCanceledOnTouchOutside(false)
-        text_view_progress_text.text = text
         myShowProgressDialog.show()
     }
 

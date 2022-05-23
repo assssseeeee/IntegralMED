@@ -47,7 +47,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 false
             }
             else -> {
-                showErrorSnackBar(resources.getString(R.string.error_details_valid), false)
                 true
             }
         }
@@ -77,7 +76,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             intent.putExtra(Constants.EXTRA_USERS_DETAILS, user)
             startActivity(intent)
         } else {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, DatabaseSearchActivity::class.java))
         }
         finish()
     }
