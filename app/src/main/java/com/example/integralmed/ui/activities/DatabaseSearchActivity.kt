@@ -1,6 +1,7 @@
 package com.example.integralmed.ui.activities
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,7 +12,7 @@ import com.example.integralmed.R
 import com.example.integralmed.databinding.ActivityDatabaseSearchBinding
 
 
-class DatabaseSearchActivity : AppCompatActivity() {
+class DatabaseSearchActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityDatabaseSearchBinding
 
@@ -33,5 +34,13 @@ class DatabaseSearchActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onBackPressed() {
+        doubleBackToExit()
     }
 }

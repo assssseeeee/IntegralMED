@@ -39,4 +39,5 @@
     <string name="forgot_password_description">Enter your username and email address we\'ll send you an email to reset your password</string>
     <string name="submit">SUBMIT</string>
     <string name="forgot_email_success">Forgot email success</string>
+    <string name="double_exit_message">Please press back to exit</string>
 </resources>

@@ -1,17 +1,24 @@
 package com.example.integralmed.ui.activities
 
 import android.app.Dialog
+import android.os.Build
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.integralmed.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
 
 
 open class BaseActivity : AppCompatActivity() {
     private lateinit var myShowProgressDialog: Dialog
+    private var doubleBackToExitPressedOnce = false
 
     fun showErrorSnackBar(message: String, errorMessage: Boolean) {
         val snackBar =
@@ -51,4 +58,32 @@ open class BaseActivity : AppCompatActivity() {
         myShowProgressDialog.dismiss()
     }
 
+    fun hideStatusBar() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+    }
+
+    fun doubleBackToExit() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(
+            this,
+            resources.getString(R.string.double_exit_message),
+            Toast.LENGTH_LONG
+        ).show()
+        @Suppress("DEPRECATION")
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+
+    }
 }
