@@ -92,6 +92,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 R.id.button_login -> {
                     loginRegisteredUser()
                 }
+                R.id.text_view_forgot_password -> {
+                    val intent = Intent(this, ForgotPasswordActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }
