@@ -1,10 +1,10 @@
-package com.example.integralmed.ui.activities.ui.dashboard
+package com.example.integralmed.ui.activities.ui.database
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class DatabaseViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

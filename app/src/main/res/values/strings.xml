@@ -30,7 +30,7 @@
     <string name="image">Image</string>
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="error_phone">Please enter phone number</string>
-    <string name="msg_profile_updatins_success">Profile updating success</string>
+    <string name="msg_profile_updating_success">Profile updating success</string>
     <string name="title_activity_database_search">DatabaseSearchActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -40,4 +40,6 @@
     <string name="submit">SUBMIT</string>
     <string name="forgot_email_success">Forgot email success</string>
     <string name="double_exit_message">Please press back to exit</string>
+    <string name="hospital_name" >Hospital name</string>
+    <string name="medical_equipment">Medical equipment</string>
 </resources>
